@@ -1,6 +1,6 @@
 {
   "name": "@adobe/generator-add-web-assets-exc-raw-html",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Extensibility template for generating Experience Cloud Shell web assets (raw HTML)",
   "main": "index.js",
   "engines": {
