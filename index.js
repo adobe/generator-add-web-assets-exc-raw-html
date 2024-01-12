@@ -36,7 +36,7 @@ class RawGenerator extends Generator {
 
     utils.addDependencies(this, {
       'regenerator-runtime': '^0.13.5',
-      '@adobe/exc-app': '^0.2.17'
+      '@adobe/exc-app': '^1.3.0'
     })
   }
 }
