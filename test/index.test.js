@@ -9,21 +9,19 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* eslint-disable jest/expect-expect */ // => use assert
+import helpers from 'yeoman-test'
+import assert from 'yeoman-assert'
+import cloneDeep from 'lodash.clonedeep'
 
-const helpers = require('yeoman-test')
-const assert = require('yeoman-assert')
-const cloneDeep = require('lodash.clonedeep')
+import Generator from 'yeoman-generator'
+import theGenerator from '../index.js'
 
-const theGeneratorPath = require.resolve('../index')
-const Generator = require('yeoman-generator')
-
-const { constants } = require('@adobe/generator-app-common-lib')
+import { constants } from '@adobe/generator-app-common-lib'
 const { sdkCodes } = constants
 
 describe('prototype', () => {
   test('exports a yeoman generator', () => {
-    expect(require(theGeneratorPath).prototype).toBeInstanceOf(Generator)
+    expect(theGenerator.prototype).toBeInstanceOf(Generator)
   })
 })
 
@@ -33,7 +31,7 @@ describe('run', () => {
     options['project-name'] = 'abc'
     options['web-src-folder'] = 'web-src'
     options['adobe-services'] = `${sdkCodes.analytics},${sdkCodes.target},${sdkCodes.campaign}`
-    await helpers.run(theGeneratorPath)
+    await helpers.run(theGenerator)
       .withOptions(options)
 
     // added files
@@ -54,7 +52,7 @@ describe('run', () => {
     options['project-name'] = 'abc'
     options['web-src-folder'] = 'web-src'
     options['adobe-services'] = `${sdkCodes.analytics}`
-    await helpers.run(theGeneratorPath)
+    await helpers.run(theGenerator)
       .withOptions(options)
 
     // added files
